@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jagan's Hub - a modern marketplace for everyday shopping.">
+  <title>Jagan's Hub | Everything you love, in one place</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+      <a class="brand" href="#" aria-label="Jagan's Hub home">
+        <span class="brand-mark">J</span>
+        <span>Jagan's<span>Hub</span><small>Explore <b>Plus</b> ✦</small></span>
+      </a>
+      <div class="search-wrap">
+        <label class="sr-only" for="searchInput">Search products</label>
+        <input id="searchInput" type="search" placeholder="Search for products, brands and more" autocomplete="off">
+        <button id="searchBtn" aria-label="Search">⌕</button>
+      </div>
+      <nav class="header-actions" id="headerActions" aria-label="Main navigation">
+        <button class="login-btn" id="loginBtn">Login</button>
+        <a href="#seller">Become a Seller</a>
+        <button class="more-btn" id="moreBtn">More <span>⌄</span></button>
+        <button class="cart-btn" id="cartBtn" aria-label="Open shopping cart">🛒 <span>Cart</span><b id="cartCount">0</b></button>
+      </nav>
+      <div class="more-menu" id="moreMenu">
+        <a href="#orders">📦 Orders</a>
+        <a href="#wishlist">♡ Wishlist</a>
+        <a href="#help">? Help Centre</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="category-strip" aria-label="Shop by category">
+      <div class="category-list" id="categoryList"></div>
+    </section>
+
+    <section class="hero" aria-label="Promotions">
+      <div class="hero-track" id="heroTrack"></div>
+      <button class="hero-arrow prev" id="prevSlide" aria-label="Previous promotion">‹</button>
+      <button class="hero-arrow next" id="nextSlide" aria-label="Next promotion">›</button>
+      <div class="hero-dots" id="heroDots"></div>
+    </section>
+
+    <section class="content-shell">
+      <div class="browse-toolbar">
+        <div>
+          <p class="eyebrow">Curated for you</p>
+          <h1>Find your next favourite</h1>
+        </div>
+        <div class="toolbar-controls">
+          <select id="sortSelect" aria-label="Sort products">
+            <option value="featured">Sort: Featured</option>
+            <option value="price-low">Price: Low to high</option>
+            <option value="price-high">Price: High to low</option>
+            <option value="rating">Top rated</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-status" id="searchStatus"></div>
+      <div id="productSections"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand footer-logo" href="#"><span class="brand-mark">J</span><span>Jagan's<span>Hub</span></span></a>
+        <p>Thoughtfully picked products, delightful prices, and a shopping experience made for you.</p>
+        <div class="socials"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Twitter">𝕏</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a></div>
+      </div>
+      <div><h3>About Jagan's Hub</h3><a href="#">About Us</a><a href="#">Careers</a><a href="#">Press</a><a href="#seller">Sell on Jagan's Hub</a></div>
+      <div><h3>Customer Care</h3><a href="#help">Help Center</a><a href="#">Contact Us</a><a href="#">Returns</a><a href="#">Shipping Info</a></div>
+      <div><h3>Policies</h3><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Security</a><a href="#">Sitemap</a></div>
+      <div class="payments"><h3>We accept</h3><div class="payment-row"><span>VISA</span><span>UPI</span><span>•••</span><span>COD</span></div><p>100% secure payments</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Jagan's Hub. Made for modern shoppers.</span><span>🌿 Carbon-neutral deliveries</span></div>
+  </footer>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <section class="modal" id="quickViewModal" aria-modal="true" role="dialog">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div id="quickViewContent"></div>
+    </section>
+    <section class="modal login-modal" id="loginModal" aria-modal="true" role="dialog">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div class="login-art"><span>Jagan's<span>Hub</span></span><p>Big dreams. Better finds.</p></div>
+      <div class="login-form"><h2>Welcome back</h2><p>Log in to see your personalised picks.</p><input type="text" placeholder="Enter email or mobile number"><button class="primary-btn" id="loginSubmit">Continue</button><small>This is a demo interface. No credentials are collected.</small></div>
+    </section>
+    <section class="modal cart-modal" id="cartModal" aria-modal="true" role="dialog">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div class="modal-heading"><div><p class="eyebrow">Your bag</p><h2>Shopping cart</h2></div><span id="cartModalCount">0 items</span></div>
+      <div id="cartItems"></div>
+      <div class="cart-total"><span>Total payable</span><strong id="cartTotal">₹0</strong></div>
+      <button class="primary-btn checkout-btn" id="checkoutBtn">Proceed to checkout →</button>
+      <p class="secure-note">🔒 Safe and secure demo checkout</p>
+    </section>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
