@@ -1,109 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jagan's Hub - a modern marketplace for everyday shopping.">
-  <title>Jagan's Hub | Everything you love, in one place</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CareerBridge is a frontend demo for discovering jobs and building career momentum.">
+  <title>CareerBridge | Find work that moves you forward</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="header-inner">
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
-      <a class="brand" href="#" aria-label="Jagan's Hub home">
-        <span class="brand-mark">J</span>
-        <span>Jagan's<span>Hub</span><small>Explore <b>Plus</b> ✦</small></span>
-      </a>
-      <div class="search-wrap">
-        <label class="sr-only" for="searchInput">Search products</label>
-        <input id="searchInput" type="search" placeholder="Search for products, brands and more" autocomplete="off">
-        <button id="searchBtn" aria-label="Search">⌕</button>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home"><span class="brand-mark"><i class="fa-solid fa-bridge"></i></span>Career<span>Bridge</span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="#jobs">Find jobs</a><a href="#careers">Explore careers</a><a href="#prep">Interview prep</a><a href="#resume">Resume builder</a>
       </div>
-      <nav class="header-actions" id="headerActions" aria-label="Main navigation">
-        <button class="login-btn" id="loginBtn">Login</button>
-        <a href="#seller">Become a Seller</a>
-        <button class="more-btn" id="moreBtn">More <span>⌄</span></button>
-        <button class="cart-btn" id="cartBtn" aria-label="Open shopping cart">🛒 <span>Cart</span><b id="cartCount">0</b></button>
-      </nav>
-      <div class="more-menu" id="moreMenu">
-        <a href="#orders">📦 Orders</a>
-        <a href="#wishlist">♡ Wishlist</a>
-        <a href="#help">? Help Centre</a>
-      </div>
-    </div>
+      <div class="nav-actions"><button class="btn btn-ghost" data-modal="authModal">Log in</button><button class="btn btn-primary" data-modal="authModal">Get started</button><button class="avatar-button hidden" id="profileButton" title="Open dashboard">JD</button></div>
+    </nav>
   </header>
 
   <main>
-    <section class="category-strip" aria-label="Shop by category">
-      <div class="category-list" id="categoryList"></div>
-    </section>
-
-    <section class="hero" aria-label="Promotions">
-      <div class="hero-track" id="heroTrack"></div>
-      <button class="hero-arrow prev" id="prevSlide" aria-label="Previous promotion">‹</button>
-      <button class="hero-arrow next" id="nextSlide" aria-label="Next promotion">›</button>
-      <div class="hero-dots" id="heroDots"></div>
-    </section>
-
-    <section class="content-shell">
-      <div class="browse-toolbar">
-        <div>
-          <p class="eyebrow">Curated for you</p>
-          <h1>Find your next favourite</h1>
+    <section class="hero" id="home">
+      <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy"><p class="eyebrow"><span class="pulse"></span> A better way to build your career</p>
+          <h1>Your future starts with the right <em>opportunity.</em></h1>
+          <p class="hero-lead">Discover jobs, develop in-demand skills, prepare for interviews, and build your dream career with CareerBridge.</p>
+          <form class="hero-search" id="heroSearch"><label class="search-field"><i class="fa-solid fa-magnifying-glass"></i><span class="sr-only">Job title, skill or company</span><input id="heroKeyword" placeholder="Job title, skill or company"></label><label class="search-field location"><i class="fa-solid fa-location-dot"></i><span class="sr-only">Location</span><input id="heroLocation" placeholder="City or remote"></label><button class="btn btn-primary" type="submit">Search jobs</button></form>
+          <div class="hero-links"><a href="#careers">Explore career paths <i class="fa-solid fa-arrow-right"></i></a><span>Trusted by curious professionals</span></div>
+          <div class="stats"><div><strong>1,200+</strong><span>Demo opportunities</span></div><div><strong>180+</strong><span>Growing companies</span></div><div><strong>94%</strong><span>Practice confidence</span></div></div>
         </div>
-        <div class="toolbar-controls">
-          <select id="sortSelect" aria-label="Sort products">
-            <option value="featured">Sort: Featured</option>
-            <option value="price-low">Price: Low to high</option>
-            <option value="price-high">Price: High to low</option>
-            <option value="rating">Top rated</option>
-          </select>
-        </div>
+        <div class="hero-visual"><div class="visual-card dashboard-card"><div class="mini-top"><span class="mini-avatar">AK</span><span>Good morning, Alex <i class="fa-solid fa-sun"></i></span><i class="fa-solid fa-ellipsis"></i></div><p class="muted">Your career progress</p><div class="progress-row"><strong>72%</strong><span>Profile complete</span><div class="progress"><i></i></div></div><div class="mini-job"><div class="company-icon purple">N</div><div><strong>Product Designer</strong><small>Northstar Labs · Remote</small></div><i class="fa-regular fa-bookmark"></i></div><div class="mini-job"><div class="company-icon orange">S</div><div><strong>Frontend Developer</strong><small>Sunbird · Bengaluru</small></div><i class="fa-solid fa-check saved"></i></div></div><div class="floating-card match-card"><span class="success-icon"><i class="fa-solid fa-check"></i></span><div><strong>Great match!</strong><small>92% skill overlap</small></div></div><div class="floating-card people-card"><div class="people"><span>AV</span><span>RK</span><span>+2k</span></div><small>People growing with us</small></div></div>
       </div>
-      <div class="search-status" id="searchStatus"></div>
-      <div id="productSections"></div>
     </section>
+
+    <section class="section jobs-section" id="jobs"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">Curated for your next move</p><h2>Find work that fits <em>your ambition.</em></h2></div><button class="text-btn" id="savedOnlyBtn"><i class="fa-regular fa-bookmark"></i> Saved jobs <span id="savedCount">0</span></button></div>
+      <div class="job-toolbar"><div class="filter-chips"><button class="filter-trigger active" data-type="all">All jobs</button><button class="filter-trigger" data-type="remote">Remote</button><button class="filter-trigger" data-type="fresher">Fresher friendly</button><button class="filter-trigger" data-type="internship">Internships</button></div><button class="filter-open" id="filterOpen"><i class="fa-solid fa-sliders"></i> Filters</button></div>
+      <div class="jobs-layout"><aside class="filters" id="filters"><div class="filter-header"><strong>Filter jobs</strong><button id="filterClose" aria-label="Close filters"><i class="fa-solid fa-xmark"></i></button></div><label>Search<input id="keywordFilter" placeholder="Role, company or skill"></label><label>Location<select id="locationFilter"><option value="">Any location</option><option>Remote</option><option>Chennai</option><option>Bengaluru</option><option>Hyderabad</option><option>Coimbatore</option></select></label><label>Job type<select id="typeFilter"><option value="">Any type</option><option>Full Time</option><option>Internship</option><option>Part Time</option></select></label><label>Experience<select id="experienceFilter"><option value="">Any experience</option><option>Fresher</option><option>1-3 years</option><option>3+ years</option></select></label><label>Sort by<select id="sortFilter"><option value="newest">Newest first</option><option value="salary">Highest salary</option></select></label><button class="clear-btn" id="clearFilters">Clear all filters</button></aside><div class="job-results"><div class="results-head"><span id="resultsCount">8 opportunities</span><span class="demo-label"><i class="fa-solid fa-circle-info"></i> Demonstration listings</span></div><div class="job-grid" id="jobGrid"></div><div class="empty-state hidden" id="emptyJobs"><i class="fa-regular fa-face-frown"></i><h3>No roles match those filters</h3><p>Try broadening your search or clearing a filter.</p><button class="btn btn-secondary" id="emptyClear">Clear filters</button></div></div></div>
+    </div></section>
+
+    <section class="section alt-section" id="careers"><div class="container"><div class="section-heading centered"><p class="eyebrow">Choose your direction</p><h2>Explore a career path with <em>purpose.</em></h2><p>Not sure where to start? Explore popular paths and find the skills that open doors.</p></div><div class="career-grid" id="careerGrid"></div></div></section>
+
+    <section class="section guidance-section"><div class="container guidance"><div><p class="eyebrow">Make your next step clearer</p><h2>Find a path that feels <em>like you.</em></h2><p>Answer five quick questions and get a rule-based starting point. These suggestions are educational, not scientifically validated predictions.</p><button class="btn btn-primary" id="guidanceButton">Discover my path <i class="fa-solid fa-arrow-right"></i></button></div><div class="path-orbit"><div class="orbit-center"><i class="fa-solid fa-compass"></i></div><span><i class="fa-solid fa-code"></i></span><span><i class="fa-solid fa-chart-line"></i></span><span><i class="fa-solid fa-cloud"></i></span><span><i class="fa-solid fa-pen-nib"></i></span></div></div></section>
+
+    <section class="section prep-section" id="prep"><div class="container"><div class="section-heading"><div><p class="eyebrow">Practice with confidence</p><h2>Turn “I hope” into <em>“I’m ready.”</em></h2></div><button class="text-btn" id="quizButton">Start a practice quiz <i class="fa-solid fa-arrow-right"></i></button></div><div class="quiz-preview"><div class="quiz-icon"><i class="fa-solid fa-bolt"></i></div><div><h3>Technical interview practice</h3><p>Sharpen your skills with bite-sized questions across Python, JavaScript, SQL, and more.</p><div class="category-pills"><span>Python</span><span>JavaScript</span><span>SQL</span><span>Data structures</span></div></div><div class="quiz-score"><strong>7</strong><small>categories</small></div></div></div></section>
+
+    <section class="section resume-section" id="resume"><div class="container resume-layout"><div><p class="eyebrow">Put your best self forward</p><h2>A resume that opens <em>the right doors.</em></h2><p>Build a polished, recruiter-friendly resume with a live preview. Your data stays in this browser.</p><button class="btn btn-primary" id="resumeButton">Build my resume <i class="fa-solid fa-arrow-right"></i></button></div><div class="resume-paper"><div class="resume-heading"><span>Alex Johnson</span><small>Frontend Developer</small></div><div class="resume-line wide"></div><div class="resume-columns"><div><div class="resume-line"></div><div class="resume-line short"></div><div class="resume-line"></div></div><div><div class="resume-line"></div><div class="resume-line short"></div><div class="resume-line"></div></div></div></div></div></section>
+
+    <section class="section testimonials"><div class="container"><div class="section-heading centered"><p class="eyebrow">A little momentum goes a long way</p><h2>People like you, <em>moving forward.</em></h2><p class="demo-label">Fictional sample testimonials for this demonstration</p></div><div class="testimonial-grid"><article class="testimonial"><div class="quote-avatar blue">PR</div><div><div class="stars">★★★★★</div><p>“The interview practice helped me walk into my first technical screen with a plan instead of panic.”</p><strong>Priya Raman</strong><small>Junior Developer · Sample profile</small></div></article><article class="testimonial"><div class="quote-avatar pink">MN</div><div><div class="stars">★★★★★</div><p>“I finally found a way to tell my story clearly. The career suggestions gave me a useful place to begin.”</p><strong>Meera Nair</strong><small>Data Analyst · Sample profile</small></div></article><article class="testimonial"><div class="quote-avatar green">DS</div><div><div class="stars">★★★★★</div><p>“Saving roles and tracking applications in one calm space made my search feel manageable.”</p><strong>Dev Shah</strong><small>Product Designer · Sample profile</small></div></article></div></div></section>
+
+    <section class="section faq-section" id="faq"><div class="container faq-layout"><div><p class="eyebrow">Questions, answered</p><h2>Good to know before <em>you begin.</em></h2><p>CareerBridge is a frontend demonstration. It does not connect to real employers or guarantee employment.</p></div><div class="faq-list"><details><summary>Is CareerBridge free to use? <i class="fa-solid fa-plus"></i></summary><p>Yes. Every feature in this demonstration is available in your browser at no cost.</p></details><details><summary>How do I apply for jobs? <i class="fa-solid fa-plus"></i></summary><p>Open a job, choose Apply now, and complete the demo form. Records are stored locally and are not sent to employers.</p></details><details><summary>Can freshers use CareerBridge? <i class="fa-solid fa-plus"></i></summary><p>Absolutely. Use the Fresher friendly filter, practice quizzes, and career guidance to get started.</p></details><details><summary>How do I save a job? <i class="fa-solid fa-plus"></i></summary><p>Select the bookmark icon on any job card. Saved jobs remain after refresh in this browser.</p></details><details><summary>Does CareerBridge guarantee employment? <i class="fa-solid fa-plus"></i></summary><p>No. Listings, outcomes, testimonials, and guidance are demonstration content only.</p></details></div></div></section>
   </main>
+  <footer class="footer"><div class="container footer-top"><div><a class="brand light" href="#home"><span class="brand-mark"><i class="fa-solid fa-bridge"></i></span>Career<span>Bridge</span></a><p>A calmer, clearer way to take your next career step.</p><div class="socials"><a href="#home" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#home" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a><a href="#home" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></div></div><div><h4>Explore</h4><a href="#jobs">Find jobs</a><a href="#careers">Career paths</a><a href="#prep">Interview prep</a></div><div><h4>Resources</h4><a href="#resume">Resume builder</a><a href="#faq">FAQs</a><a href="#home">Privacy policy</a></div><div><h4>Demo contact</h4><p>hello@careerbridge.demo<br>Mon–Fri, 9am–5pm IST</p></div></div><div class="container footer-bottom"><span>© 2026 CareerBridge. Demonstration product.</span><button id="resetData">Reset demo data</button><span>Built for your next chapter.</span></div></footer>
 
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand footer-logo" href="#"><span class="brand-mark">J</span><span>Jagan's<span>Hub</span></span></a>
-        <p>Thoughtfully picked products, delightful prices, and a shopping experience made for you.</p>
-        <div class="socials"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Twitter">𝕏</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a></div>
-      </div>
-      <div><h3>About Jagan's Hub</h3><a href="#">About Us</a><a href="#">Careers</a><a href="#">Press</a><a href="#seller">Sell on Jagan's Hub</a></div>
-      <div><h3>Customer Care</h3><a href="#help">Help Center</a><a href="#">Contact Us</a><a href="#">Returns</a><a href="#">Shipping Info</a></div>
-      <div><h3>Policies</h3><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Security</a><a href="#">Sitemap</a></div>
-      <div class="payments"><h3>We accept</h3><div class="payment-row"><span>VISA</span><span>UPI</span><span>•••</span><span>COD</span></div><p>100% secure payments</p></div>
-    </div>
-    <div class="footer-bottom"><span>© 2026 Jagan's Hub. Made for modern shoppers.</span><span>🌿 Carbon-neutral deliveries</span></div>
-  </footer>
-
-  <div class="modal-backdrop" id="modalBackdrop">
-    <section class="modal" id="quickViewModal" aria-modal="true" role="dialog">
-      <button class="modal-close" data-close-modal aria-label="Close">×</button>
-      <div id="quickViewContent"></div>
-    </section>
-    <section class="modal login-modal" id="loginModal" aria-modal="true" role="dialog">
-      <button class="modal-close" data-close-modal aria-label="Close">×</button>
-      <div class="login-art"><span>Jagan's<span>Hub</span></span><p>Big dreams. Better finds.</p></div>
-      <div class="login-form"><h2>Welcome back</h2><p>Log in to see your personalised picks.</p><input type="text" placeholder="Enter email or mobile number"><button class="primary-btn" id="loginSubmit">Continue</button><small>This is a demo interface. No credentials are collected.</small></div>
-    </section>
-    <section class="modal cart-modal" id="cartModal" aria-modal="true" role="dialog">
-      <button class="modal-close" data-close-modal aria-label="Close">×</button>
-      <div class="modal-heading"><div><p class="eyebrow">Your bag</p><h2>Shopping cart</h2></div><span id="cartModalCount">0 items</span></div>
-      <div id="cartItems"></div>
-      <div class="cart-total"><span>Total payable</span><strong id="cartTotal">₹0</strong></div>
-      <button class="primary-btn checkout-btn" id="checkoutBtn">Proceed to checkout →</button>
-      <p class="secure-note">🔒 Safe and secure demo checkout</p>
-    </section>
-  </div>
-  <div class="toast" id="toast"></div>
+  <div class="modal-backdrop hidden" id="jobModal"><div class="modal modal-large" role="dialog" aria-modal="true" aria-labelledby="jobModalTitle"><button class="modal-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button><div id="jobDetail"></div></div></div>
+  <div class="modal-backdrop hidden" id="authModal"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="modal-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button><div class="modal-head"><span class="modal-symbol"><i class="fa-solid fa-bridge"></i></span><h2 id="authTitle">Welcome to CareerBridge</h2><p>Save roles and track your momentum. This is a browser-only demo.</p></div><div class="tabs"><button class="tab active" data-auth-tab="login">Log in</button><button class="tab" data-auth-tab="register">Create account</button></div><form id="authForm"><div id="authFields"></div><button class="btn btn-primary full" type="submit" id="authSubmit">Log in</button><p class="form-message" id="authMessage"></p></form></div></div>
+  <div class="modal-backdrop hidden" id="applicationModal"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="applyTitle"><button class="modal-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button><div class="modal-head"><span class="modal-symbol green-symbol"><i class="fa-solid fa-paper-plane"></i></span><h2 id="applyTitle">Apply for this role</h2><p class="apply-role" id="applyRole"></p></div><form id="applicationForm"><input type="hidden" id="applyJobId"><label>Full name<input id="applyName" required></label><label>Email<input type="email" id="applyEmail" required></label><label>Phone<input type="tel" id="applyPhone" required pattern="[0-9+\-\s]{7,}"></label><label>Resume file<input type="file" id="applyResume" accept=".pdf,.doc,.docx" required></label><label>Short cover letter<textarea id="applyCover" rows="4" required></textarea></label><button class="btn btn-primary full" type="submit">Submit demo application</button><p class="form-note">Your resume is not uploaded. Only application metadata is stored locally.</p></form></div></div>
+  <div class="modal-backdrop hidden" id="guidanceModal"><div class="modal" role="dialog" aria-modal="true"><button class="modal-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button><div class="modal-head"><span class="modal-symbol"><i class="fa-solid fa-compass"></i></span><h2>Find your direction</h2><p>Rule-based suggestions to help you explore.</p></div><form id="guidanceForm"><label>Education level<select id="education"><option>Student</option><option>Graduate</option><option>Postgraduate</option><option>Self-taught</option></select></label><label>Technical skills<select id="skillSet"><option value="web">HTML, CSS & JavaScript</option><option value="python">Python & SQL</option><option value="django">Python, Django & SQL</option><option value="java">Java & SQL</option><option value="design">Figma & visual design</option></select></label><label>Interests<select id="interest"><option>Building products</option><option>Finding insights</option><option>Designing experiences</option><option>Infrastructure</option></select></label><label>Preferred location<select id="preference"><option>Remote</option><option>Any city</option><option>My current city</option></select></label><label>Experience<select id="careerExperience"><option>Fresher</option><option>1-3 years</option><option>3+ years</option></select></label><button class="btn btn-primary full" type="submit">Show my suggestions</button></form><div id="guidanceResult" class="result-box hidden"></div></div></div>
+  <div class="modal-backdrop hidden" id="quizModal"><div class="modal modal-large" role="dialog" aria-modal="true"><button class="modal-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button><div class="modal-head"><span class="modal-symbol orange-symbol"><i class="fa-solid fa-bolt"></i></span><h2>Interview practice</h2><p>Choose a category and test your knowledge.</p></div><div id="quizContent"></div></div></div>
+  <div class="modal-backdrop hidden" id="resumeModal"><div class="modal modal-large" role="dialog" aria-modal="true"><button class="modal-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button><div class="modal-head"><span class="modal-symbol"><i class="fa-solid fa-file-lines"></i></span><h2>Resume builder</h2><p>Live preview, saved in this browser.</p></div><div class="resume-builder"><form id="resumeForm"><label>Full name<input name="name" value="Alex Johnson"></label><label>Professional summary<textarea name="summary" rows="3">Curious developer who enjoys turning complex problems into simple, useful products.</textarea></label><label>Email<input name="email" value="alex@example.com" type="email"></label><label>Phone<input name="phone" value="+91 98765 43210"></label><label>Technical skills<input name="skills" value="JavaScript, HTML, CSS, Git"></label><label>Projects<textarea name="projects" rows="3">CareerBridge — A responsive job discovery experience</textarea></label><label>GitHub URL<input name="github" value="github.com/alexjohnson"></label><button class="btn btn-secondary" type="submit">Save resume</button><button class="btn btn-primary" type="button" id="printResume">Print / save PDF</button></form><article class="resume-preview" id="resumePreview"></article></div></div></div>
+  <div class="toast" id="toast" role="status"></div>
   <script src="script.js"></script>
 </body>
 </html>
